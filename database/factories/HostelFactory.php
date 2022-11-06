@@ -19,7 +19,8 @@ class HostelFactory extends Factory
         return [
             'name'=>fake()->name(),
             'email'=>fake()->email(),
-            'contactNumber'=>fake()->creditCardNumber(),
+            'contactNumber'=>fake()->numberBetween(7777777777,9999999999),
+            'unique_Id'=>fake()->numerify('###-####-#####'),
             'student'=>fake()->boolean()         //
         ];
     }

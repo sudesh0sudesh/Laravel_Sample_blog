@@ -14,11 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('emergency_details', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unique();
             $table->string("bloodgroup");
-            $table->bigInteger("phonenumber")
+            $table->bigInteger("emergencycontact");
             $table->timestamps();
-            $table->bigInteger("link_key");
+            $table->bigInteger("hostel_id")->unsigned();
+            $table->foreign("hostel_id")->unique()->references("id")->on("hostels")->onDelete("cascade")->onUpdate("cascade");
         });
     }
 

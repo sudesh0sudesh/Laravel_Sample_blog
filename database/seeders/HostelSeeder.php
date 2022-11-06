@@ -16,13 +16,14 @@ class HostelSeeder extends Seeder
     public function run()
     {
         $a= new Hostel;
-        $a->id=1;
         $a->name ="Sudesh";
         $a->email="sudesh@sudesh.com";
         $a->contactNumber=96789345445;
         $a->student=1;
+        $a->unique_Id="RANDOM_ID";
+        $a->save();
 
         Hostel::factory()->count(50)->create();
-        //
+
     }
 }
